@@ -1,0 +1,18 @@
+<!-- templates/reconstructed.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconstructed Image</title>
+</head>
+<body>
+    <h1>Reconstructed Image</h1>
+    <p>Original Image: {{ original }}</p>
+    <img src="{{ url_for('static', filename='uploads/' + reconstructed) }}" alt="Reconstructed Image">
+    <p><a href="{{ url_for('download_reconstructed', filename=reconstructed) }}" download>Download Reconstructed Image</a></p>
+    <p><a href="/">Back to Upload</a></p>
+</body>
+</html>

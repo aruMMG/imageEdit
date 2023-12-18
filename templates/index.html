@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Reconstruction</title>
+</head>
+<body>
+    <h1>Image Reconstruction</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+        <button type="submit">Upload</button>
+    </form>
+    {% if filename %}
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        <form action="{{ url_for('reconstruct_file', filename=filename) }}" method="get">
+            <button type="submit">Reconstruct Image</button>
+        </form>
+    {% endif %}
+</body>
+</html>
+
